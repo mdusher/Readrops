@@ -12,7 +12,7 @@
     <string name="about">About</string>
     <string name="add_feed_title">Add feed</string>
     <string name="feed_url">Feed url</string>
-    <string name="validate">Validate</string>
+    <string name="validate">Confirm</string>
     <string name="empty_field">Field can\'t be empty</string>
     <string name="wrong_url">Input is not a valid URL</string>
     <string name="add_feed_no_result">No feed url found</string>
