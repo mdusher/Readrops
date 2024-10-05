@@ -73,7 +73,8 @@ fun RegularTimelineItem(
 
             ShortSpacer()
 
-            TimelineItemTitle(title = itemWithFeed.item.title!!)
+            TimelineItemTitle(title = itemWithFeed.item.title!!, isRead = itemWithFeed.item.isRead)
+
 
             ShortSpacer()
 
@@ -98,7 +99,7 @@ fun CompactTimelineItem(
         color = MaterialTheme.colorScheme.surfaceVariant,
         modifier = modifier
             .fillMaxWidth()
-            .alpha(if (itemWithFeed.item.isRead) 0.6f else 1f)
+            .alpha(if (itemWithFeed.item.isRead) 0.2f else 1f)
             .clickable { onClick() }
     ) {
         Column(
@@ -123,7 +124,7 @@ fun CompactTimelineItem(
 
             ShortSpacer()
 
-            TimelineItemTitle(title = itemWithFeed.item.title!!)
+            TimelineItemTitle(title = itemWithFeed.item.title!!, isRead = itemWithFeed.item.isRead)
 
             ShortSpacer()
 
@@ -181,7 +182,7 @@ fun LargeTimelineItem(
 
                     ShortSpacer()
 
-                    TimelineItemTitle(title = itemWithFeed.item.title!!)
+                    TimelineItemTitle(title = itemWithFeed.item.title!!, isRead = itemWithFeed.item.isRead)
 
                     if (itemWithFeed.item.cleanDescription != null) {
                         ShortSpacer()
@@ -228,7 +229,7 @@ fun TimelineItemContainer(
         modifier = modifier
             .padding(horizontal = MaterialTheme.spacing.shortSpacing)
             .fillMaxWidth()
-            .alpha(if (isRead) 0.6f else 1f)
+            .alpha(if (isRead) 0.2f else 1f)
             .clickable { onClick() }
     ) {
         content()
@@ -335,14 +336,16 @@ fun TimelineItemHeader(
 
 @Composable
 fun TimelineItemTitle(
-    title: String
+    title: String,
+    isRead: Boolean
 ) {
+    val fontWeight = if (isRead) FontWeight.Normal else FontWeight.Bold
     Text(
         text = title,
         style = MaterialTheme.typography.titleMedium,
         maxLines = 2,
         overflow = TextOverflow.Ellipsis,
-        fontWeight = FontWeight.Bold,
+        fontWeight = fontWeight,
     )
 }
 
